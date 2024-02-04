@@ -1,22 +1,33 @@
-import './App.css'
-import Logo from './components/Logo.jsx';
+import Logo from './components/Logo';
+import Navigation from './components/Navigation';
 
-function App() {
+const App = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
 
   return (
-      <div>
-      
+    <div>
       <Logo />
-      <div className="buttons-container">
-        <div className="home button">Home</div>
-        <div className="aboutMe button">About Me</div>
-        <div className="skills button">Skills</div>
-        <div className="projects button">Projects</div>
-        <div className="contact button">Contact</div>
-
+      <Navigation scrollToSection={scrollToSection} />
+      <div id="aboutMe" className="section">
+        <h2>about me</h2>
+      
       </div>
-      </div>  
-  )
-}
+      <div id="skills" className="section">
+        <h2>skills</h2>
+      </div>
+      <div id="projects" className="section">
+        <h2>projects</h2>
+      </div>
+      <div id="contact" className="section">
+        <h2>contact</h2>
+      </div>
+    </div>
+  );
+};
 
 export default App;
